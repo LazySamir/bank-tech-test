@@ -15,19 +15,22 @@ describe "account" do
       expect(@account.show_balance).to eq("You have £0 in your account")
     end
   end
-  describe "#deposit" do
-    it "increases balance" do
-      @account.deposit(100, "06/10/2018")
 
-      expect(@account.balance).to eq(100)
+  context "with £100 deposited" do
+    before(:each) do
+      @account.deposit(100, "06/10/2018")
     end
-  end
-  describe "#withdraw" do
-    it "decreases balance" do
-      @account.deposit(100, "06/10/2018")
-      @account.withdraw(50, "06/10/2018")
+    describe "#deposit" do
+      it "increases balance" do
+        expect(@account.balance).to eq(100)
+      end
+    end
+    describe "#withdraw" do
+      it "decreases balance" do
+        @account.withdraw(50, "06/10/2018")
 
-      expect(@account.balance).to eq(50)
+        expect(@account.balance).to eq(50)
+      end
     end
   end
 end
