@@ -1,16 +1,19 @@
 require "./lib/account.rb"
 
-describe "#show_balance" do
+describe "account" do
 
   before(:each) do
     @account = Account.new
   end
+  describe "#new" do
+    it "starts with an empty balance" do
+      expect(@account.balance).to eq(0)
+    end
+  end
+  describe "#show_balance" do
+    it "shows current balance message" do
+      expect(@account.show_balance).to eq("You have £0 in your account")
+    end
+  end
 
-  it "shows balance string when account is empty" do
-    expect(@account.balance).to eq("You have £0 in your account")
-  end
-  it "shows balance corrent balance string when money has been deposited" do
-    @account.balance += 100
-    expect(@account.balance).to eq("You have £100 in your account")
-  end
 end
