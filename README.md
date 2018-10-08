@@ -55,3 +55,6 @@ As a user
 So I can easily see a detailed history of my transactions
 I want my statement to show the date, amount and remaining balance from each transaction
 ```
+
+#### Approach
+1. Starting with user story 3: ability to see how much money is in the user's account. This will allow me to more easily create withdrawal and deposit feature tests as the user will be able to run a command to see if the transactions were successful. 
