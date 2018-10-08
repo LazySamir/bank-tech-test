@@ -1,16 +1,12 @@
-require "./lib/account.rb"
+class Account
 
-describe "#show_balance" do
+attr_reader :balance
 
-  before :each do
-    account = Account.new
+  def initialize
+    @balance = 0
   end
 
-  it "shows balance string when account is empty" do
-    expect(account.balance).to eq("You have £0 in your account")
+  def show_balance
   end
-  it "shows balance corrent balance string when money has been deposited" do
-    account.balance += 100
-    expect(account.balance).to eq("You have £100 in your account")
-  end
+
 end
