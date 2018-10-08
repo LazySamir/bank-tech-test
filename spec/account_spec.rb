@@ -15,5 +15,10 @@ describe "account" do
       expect(@account.show_balance).to eq("You have £0 in your account")
     end
   end
-
+  describe "#deposit" do
+    it "increases balance" do
+      @account.deposit(100)
+      expect(@account.balance).to eq(100)
+    end
+  end
 end

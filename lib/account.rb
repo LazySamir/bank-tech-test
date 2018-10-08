@@ -10,4 +10,7 @@ attr_accessor :balance
     "You have £#{@balance} in your account"
   end
 
+  def deposit(amount)
+    @balance += amount
+  end
 end
