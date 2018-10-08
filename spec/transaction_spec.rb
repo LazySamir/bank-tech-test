@@ -9,7 +9,7 @@ describe "transaction" do
         @deposit_transaction = Transaction.new("06/10/2018", 200, "", mock_account.balance)
         @withdrawal_transaction = Transaction.new("07/10/2018", "", 100, mock_account.balance)
       end
-      describe "something" do
+      describe "state" do
         it "knows the date" do
           expect(@deposit_transaction.date).to eq("06/10/2018")
         end

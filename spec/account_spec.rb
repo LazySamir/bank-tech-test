@@ -2,9 +2,10 @@ require "./lib/account.rb"
 
 describe "account" do
   let(:mock_transaction) { class_double('Transaction') }
+  let(:mock_transaction_history) { double('transaction_history', all_transactions: [mock_transaction]) }
 
   before(:each) do
-    @account = Account.new
+    @account = Account.new(mock_transaction_history)
   end
   describe "#new" do
     it "starts with an empty balance" do
@@ -25,18 +26,12 @@ describe "account" do
       it "increases balance" do
         expect(@account.balance).to eq(100)
       end
-      it "creates a transaction object" do
-        expect(@account.deposit(100, "06/10/2018")).to be_instance_of(Transaction)
-      end
     end
     describe "#withdraw" do
       it "decreases balance" do
         @account.withdraw(50, "06/10/2018")
 
         expect(@account.balance).to eq(50)
-      end
-      it "creates a transaction object" do
-        expect(@account.withdraw(50, "07/10/2018")).to be_instance_of(Transaction)
       end
     end
   end
