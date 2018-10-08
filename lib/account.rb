@@ -1,6 +1,6 @@
 class Account
 
-attr_accessor :balance
+attr_reader :balance
 
   def initialize
     @balance = 0
@@ -10,11 +10,11 @@ attr_accessor :balance
     "You have £#{@balance} in your account"
   end
 
-  def deposit(amount)
+  def deposit(amount, date)
     @balance += amount
   end
 
-  def withdraw(amount)
+  def withdraw(amount, date)
     @balance -= amount
   end
 end

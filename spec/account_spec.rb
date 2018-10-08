@@ -17,14 +17,16 @@ describe "account" do
   end
   describe "#deposit" do
     it "increases balance" do
-      @account.deposit(100)
+      @account.deposit(100, "06/10/2018")
+
       expect(@account.balance).to eq(100)
     end
   end
   describe "#withdraw" do
     it "decreases balance" do
-      @account.deposit(100)
-      @account.withdraw(50)
+      @account.deposit(100, "06/10/2018")
+      @account.withdraw(50, "06/10/2018")
+
       expect(@account.balance).to eq(50)
     end
   end
