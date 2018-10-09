@@ -8,18 +8,18 @@ attr_reader :balance, :transaction_history
   end
 
   def show_balance
-    "You have £#{@balance} in your account"
+    "You have £#{balance} in your account"
   end
 
   def deposit(amount)
     @balance += amount
-    @transaction_history.record_transaction(amount, "", @balance)
+    transaction_history.record_transaction(amount, "", balance)
   end
 
   def withdraw(amount)
-    raise "Insufficient funds" if @balance < amount
+    raise "Insufficient funds" if balance < amount
     @balance -= amount
-    @transaction_history.record_transaction("", amount, @balance)
+    transaction_history.record_transaction("", amount, balance)
   end
 
 end
