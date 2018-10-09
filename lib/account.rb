@@ -1,6 +1,5 @@
 class Account
-
-attr_reader :balance, :transaction_history
+  attr_reader :balance, :transaction_history
 
   def initialize(history = TransactionHistory.new)
     @transaction_history = history
@@ -18,8 +17,8 @@ attr_reader :balance, :transaction_history
 
   def withdraw(amount)
     raise "Insufficient funds" if balance < amount
+    
     @balance -= amount
     transaction_history.record_transaction("", amount, balance)
   end
-
 end

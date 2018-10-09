@@ -3,7 +3,7 @@ require "./lib/account.rb"
 describe "account" do
   subject(:account) { Account.new(mock_transaction_history) }
   let(:mock_transaction) { class_double('Transaction') }
-  let(:mock_transaction_history) { double('transaction_history', all_transactions: [mock_transaction], record_transaction:[]) }
+  let(:mock_transaction_history) { double('transaction_history', all_transactions: [mock_transaction], record_transaction: []) }
 
   describe "#new" do
     it "starts with an empty balance" do
@@ -20,7 +20,6 @@ describe "account" do
     before(:each) do
       account.deposit(100)
     end
-
     describe "#deposit" do
       it "increases balance" do
         expect(account.balance).to eq(100)
