@@ -6,6 +6,10 @@ attr_reader :all_transactions
     @all_transactions = []
   end
 
+  def record_transaction(credit, debit, balance)
+    all_transactions << Transaction.new(credit, debit, balance)
+  end
+
   def show_statement
     statement = header
     all_transactions.each do |trans|

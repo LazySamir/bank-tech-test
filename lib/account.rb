@@ -13,12 +13,14 @@ attr_reader :balance, :transaction_history
 
   def deposit(amount)
     @balance += amount
-    @transaction_history.all_transactions << Transaction.new(amount, "", @balance)
+    # @transaction_history.all_transactions << Transaction.new(amount, "", @balance)
+    @transaction_history.record_transaction(amount, "", @balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    @transaction_history.all_transactions << Transaction.new("", amount, @balance)
+    # @transaction_history.all_transactions << Transaction.new("", amount, @balance)
+    @transaction_history.record_transaction("", amount, @balance)
   end
 
 end

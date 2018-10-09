@@ -2,7 +2,7 @@ require "./lib/account.rb"
 
 describe "account" do
   let(:mock_transaction) { class_double('Transaction') }
-  let(:mock_transaction_history) { double('transaction_history', all_transactions: [mock_transaction]) }
+  let(:mock_transaction_history) { double('transaction_history', all_transactions: [mock_transaction], record_transaction:[]) }
 
   before(:each) do
     @account = Account.new(mock_transaction_history)
