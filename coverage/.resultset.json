@@ -165,13 +165,6 @@
         4,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/samirsoormally/Documents/Projects/tech-tests/tech-test-week/bank-tech-test/spec/features/withdraw_money_spec.rb": [
@@ -272,6 +265,6 @@
         null
       ]
     },
-    "timestamp": 1539089487
+    "timestamp": 1539092848
   }
 }

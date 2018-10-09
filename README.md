@@ -10,8 +10,47 @@ $ cd bank-test
 $ bundle
 ```
 
-#### Use the application
-<!-- add info on how to use application features in IRB -->
+### Use the application
+1. Open the bank-test directory and run 'irb'
+
+`$ irb`
+
+2. Require the classes
+
+```
+$ require "./lib/account.rb"
+$ require "./lib/transaction.rb"
+$ require "./lib/transaction_history.rb"
+```
+
+3. Create an account
+
+`$ account = Account.new`
+
+4. Make deposits and withdrawals
+
+```
+$ account.deposit(300)
+$ account.withdrawal(200)
+```
+
+5. See current balance
+
+`$ account.show_balance`
+
+6. See full statement
+
+`$ account.transaction_history.show_statement`
+
+### Test the application
+```
+$ cd bank-test
+$ rspec
+$ rubocop
+```
+
+Test coverage is: 100%
+All tests are passing
 
 ## Specification
 
@@ -56,5 +95,27 @@ So I can easily see a detailed history of my transactions
 I want my statement to show the date, amount and remaining balance from each transaction
 ```
 
+### Domain model
+
+![Imgur](https://i.imgur.com/C9ahfRr.jpg)
+
 #### Approach
-1. Starting with user story 3: ability to see how much money is in the user's account. This will allow me to more easily create withdrawal and deposit feature tests as the user will be able to run a command to see if the transactions were successful. 
+1. Turned spec into user stories
+
+2. Drew out domain model of how I wanted classes and methods to interact
+
+3. Completed first three user stories with in a single class "Account"
+
+4. Class extraction: deposit and withdraw to create Transaction objects.
+
+5. Class extraction: TransactionHistory class to have responsibility for storing and displaying transactions.
+  - Initially I stored transactions in the Account class however this did not cohere with SRP.
+
+
+6. Added edge cases and refactored code as they became apparent.
+
+
+#### How I would improve the app
+1. Deposits and withdrawals only deal with whole integers. I would like them be able to handle pennies.
+
+2. Add a method for Transaction History that allows the user to select the dates or month that they would like to see the statement for.
