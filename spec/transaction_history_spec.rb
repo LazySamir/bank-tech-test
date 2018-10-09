@@ -24,28 +24,22 @@ describe "transaction_history" do
   end
 
   context "with a deposit transaction of £100" do
-    before(:each) do
-      history.all_transactions << mock_transaction1
-    end
-
     describe "#show_statement" do
       it "displays a header" do
-        expect(history.show_statement).to include(
-          "date || credit || debit || balance")
+        expect { history.show_statement }.to output("date || credit || debit || balance \n").to_stdout
       end
       it "displays a single transaction" do
-        expect(history.show_statement).to include(
-          "06/10/2018 || 100.00 ||  || 100.00"
-        )
+        history.all_transactions << mock_transaction1
 
+        expect { history.show_statement }.to output("date || credit || debit || balance \n06/10/2018 || 100.00 ||  || 100.00\n").to_stdout
       end
       it "displays multiple transactions" do
+        history.all_transactions << mock_transaction1
         history.all_transactions << mock_transaction2
         history.all_transactions << mock_transaction3
 
-        expect(history.show_statement).to include(
-          "06/10/2018 || 100.00 ||  || 100.00\n07/10/2018 || 200.00 ||  || 300.00\n08/10/2018 ||  || 150.00 || 150.00"
-        )
+        expect { history.show_statement }.to output(
+        "date || credit || debit || balance \n06/10/2018 || 100.00 ||  || 100.00\n07/10/2018 || 200.00 ||  || 300.00\n08/10/2018 ||  || 150.00 || 150.00\n").to_stdout
       end
     end
   end

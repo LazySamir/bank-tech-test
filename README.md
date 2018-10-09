@@ -116,6 +116,6 @@ I want my statement to show the date, amount and remaining balance from each tra
 
 
 #### How I would improve the app
-1. Deposits and withdrawals only deal with whole integers. I would like them be able to handle pennies.
+1. Deposits and withdrawals only deal with whole integers. Consequently, .00 is added as a string to the end output. I would like them be able to handle pennies.
 
 2. Add a method for Transaction History that allows the user to select the dates or month that they would like to see the statement for.
