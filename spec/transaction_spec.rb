@@ -6,12 +6,12 @@ describe "transaction" do
   describe "#new" do
     context "when a transaction has been made" do
       before(:each) do
-        @deposit_transaction = Transaction.new("06/10/2018", 200, "", mock_account.balance)
-        @withdrawal_transaction = Transaction.new("07/10/2018", "", 100, mock_account.balance)
+        @deposit_transaction = Transaction.new(200, "", mock_account.balance)
+        @withdrawal_transaction = Transaction.new("", 100, mock_account.balance)
       end
       describe "state" do
         it "knows the date" do
-          expect(@deposit_transaction.date).to eq("06/10/2018")
+          expect(@deposit_transaction.date).to eq(time_now)
         end
         it "knows how much is creditted" do
           expect(@deposit_transaction.credit).to eq(200)

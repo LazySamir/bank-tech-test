@@ -11,14 +11,14 @@ attr_reader :balance, :transaction_history
     "You have £#{@balance} in your account"
   end
 
-  def deposit(amount, date)
+  def deposit(amount)
     @balance += amount
-    @transaction_history.all_transactions << Transaction.new(date, amount, "", @balance)
+    @transaction_history.all_transactions << Transaction.new(amount, "", @balance)
   end
 
-  def withdraw(amount, date)
+  def withdraw(amount)
     @balance -= amount
-    @transaction_history.all_transactions << Transaction.new(date, "", amount, @balance)
+    @transaction_history.all_transactions << Transaction.new("", amount, @balance)
   end
 
 end

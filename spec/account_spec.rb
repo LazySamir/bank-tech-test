@@ -20,7 +20,7 @@ describe "account" do
 
   context "with £100 deposited" do
     before(:each) do
-      @account.deposit(100, "06/10/2018")
+      @account.deposit(100)
     end
     describe "#deposit" do
       it "increases balance" do
@@ -29,7 +29,7 @@ describe "account" do
     end
     describe "#withdraw" do
       it "decreases balance" do
-        @account.withdraw(50, "06/10/2018")
+        @account.withdraw(50)
 
         expect(@account.balance).to eq(50)
       end
