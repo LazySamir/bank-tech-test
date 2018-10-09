@@ -27,8 +27,15 @@ class Account
   private
 
   def error_if_invalid(amount)
-    raise "Non-integer detected: please enter positive integer" unless amount.is_a? Integer
-    raise "Negative integer detected: please enter a positive integer" unless amount.positive?
+    raise non_integer_error unless amount.is_a? Integer
+    raise non_positive_error unless amount.positive?
   end
 
+  def non_integer_error
+    "Non-integer detected: please enter positive integer"
+  end
+
+  def non_positive_error
+    "Negative integer detected: please enter a positive integer"
+  end
 end

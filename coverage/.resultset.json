@@ -86,6 +86,13 @@
         14,
         null,
         null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
         null
       ],
       "/Users/samirsoormally/Documents/Projects/tech-tests/tech-test-week/bank-tech-test/spec/features/deposit_money_spec.rb": [
@@ -260,6 +267,6 @@
         null
       ]
     },
-    "timestamp": 1539097546
+    "timestamp": 1539098196
   }
 }
