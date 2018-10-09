@@ -12,10 +12,8 @@ class TransactionHistory
   def show_statement
     statement = header
     all_transactions.each do |trans|
-      statement += "#{trans.date} || #{trans.credit}.00 || #{trans.debit} ||
-                    #{trans.balance}.00\n" if trans.debit == ""
-      statement += "#{trans.date} || #{trans.credit} || #{trans.debit}.00 ||
-                    #{trans.balance}.00\n" if trans.credit == ""
+      statement += "#{trans.date} || #{trans.credit}.00 || #{trans.debit} || #{trans.balance}.00\n" if trans.debit == ""
+      statement += "#{trans.date} || #{trans.credit} || #{trans.debit}.00 || #{trans.balance}.00\n" if trans.credit == ""
     end
     statement
   end

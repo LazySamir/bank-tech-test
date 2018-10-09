@@ -20,11 +20,17 @@ describe "account" do
     before(:each) do
       account.deposit(100)
     end
+
     describe "#deposit" do
       it "increases balance" do
         expect(account.balance).to eq(100)
       end
     end
+    it "only accepts positive integers" do
+      expect { account.withdraw(-100) }.to raise_error("Negative integer detected: please enter a positive integer")
+      expect { account.withdraw("abc") }.to raise_error("Non-integer detected: please enter positive integer")
+    end
+
     describe "#withdraw" do
       it "decreases balance" do
         account.withdraw(50)
@@ -33,6 +39,10 @@ describe "account" do
       end
       it "does not decrease below balance" do
         expect { account.withdraw(300) }.to raise_error("Insufficient funds")
+      end
+      it "only accepts positive integers" do
+        expect { account.withdraw(-100) }.to raise_error("Negative integer detected: please enter a positive integer")
+        expect { account.withdraw("abc") }.to raise_error("Non-integer detected: please enter positive integer")
       end
     end
   end
