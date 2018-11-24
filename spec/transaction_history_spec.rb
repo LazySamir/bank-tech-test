@@ -6,12 +6,6 @@ describe "transaction_history" do
   let(:mock_transaction2) { double('transaction', date: "07/10/2018", credit: 200, debit: "", balance: 300) }
   let(:mock_transaction3) { double('transaction', date: "08/10/2018", credit: "", debit: 150, balance: 150) }
 
-  describe "#new" do
-    it "starts empty history" do
-      expect(history.all_transactions).to eq([])
-    end
-  end
-
   describe "#record_transaction" do
     it "creates a transaction object" do
       subject.record_transaction(100, "", 100)

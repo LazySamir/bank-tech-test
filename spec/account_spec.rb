@@ -5,11 +5,6 @@ describe "account" do
   let(:mock_transaction) { class_double('Transaction') }
   let(:mock_transaction_history) { double('transaction_history', all_transactions: [mock_transaction], record_transaction: []) }
 
-  describe "#new" do
-    it "starts with an empty balance" do
-      expect(account.balance).to eq(0)
-    end
-  end
   describe "#show_balance" do
     it "shows current balance message" do
       expect(account.show_balance).to eq("You have £0 in your account")
