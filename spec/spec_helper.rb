@@ -1,4 +1,4 @@
-require "./spec/web_helper.rb"
+require "./spec/helpers/features_helper.rb"
 
 require 'simplecov'
 require 'simplecov-console'
